@@ -3,19 +3,22 @@ import Header from './components/Header';
 import Formulario from './components/Formulario';
 import CategoriasProvider from './context/CategoriasContext';
 import RecetasProvider from './context/RecetasContext';
+import ModalProvider from './context/ModalContext';
 import ListaRecetas from './components/ListaRecetas';
 
 function App() {
   return (
     <CategoriasProvider>
       <RecetasProvider>
-        <Header></Header>
-        <div className="container mt-5">
-          <div className="row">
-            <Formulario></Formulario>
+        <ModalProvider>
+          <Header></Header>
+          <div className="container mt-5">
+            <div className="row">
+              <Formulario></Formulario>
+            </div>
+            <ListaRecetas></ListaRecetas>
           </div>
-          <ListaRecetas></ListaRecetas>
-        </div>
+        </ModalProvider>
       </RecetasProvider>
     </CategoriasProvider>
   );
