@@ -42,7 +42,7 @@ const Receta = ({ receta }) => {
     }
 
     // Extraer los valores del context
-    const { setIdreceta } = useContext(ModalContext);
+    const { informacion_receta, setIdreceta, setReceta } = useContext(ModalContext);
 
     return (
         <div className="mb-3 col-md-4">
@@ -51,9 +51,14 @@ const Receta = ({ receta }) => {
                 <img className="card-img-top" src={ receta.strDrinkThumb } alt={ `Imagen de ${receta.strDrink}` } />
                 <div className="card-body bg-primary">
                     <button className="btn btn-light btn-block" type="button" onClick={ (e) => { setIdreceta(receta.idDrink); handleOpen(); } }>Ver receta</button>
-                    <Modal open={ open } onClose={ () => { setIdreceta(null); handleClose(); } }>
+                    <Modal open={ open } onClose={ () => { setIdreceta(null); handleClose(); setReceta({}); } }>
                         <div style={ modalStyle } className={ classes.paper }>
-                            <h1>Desde el modal</h1>
+                            <h2 className="text-center">{ informacion_receta.strDrink }</h2>
+                            <h4 className="mt-4">Instrucciones</h4>
+                            <p>
+                                { informacion_receta.strInstructions }
+                            </p>
+                            <img className="img-fluid" src={ informacion_receta.strDrinkThumb } alt={ `Imagen de ${informacion_receta.strDrink}` } />
                         </div>
                     </Modal>
                 </div>
