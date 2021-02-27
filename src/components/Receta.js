@@ -44,6 +44,26 @@ const Receta = ({ receta }) => {
     // Extraer los valores del context
     const { informacion_receta, setIdreceta, setReceta } = useContext(ModalContext);
 
+    // Muestra y formatea los ingredientes
+    const mostrarIngredientes = (informacion) => {
+        let ingredientes = [];
+
+        for (let i = 0; i < 16; i++) {
+            if (informacion[`strIngredient${i}`]) {
+                ingredientes.push(
+                    <li className="my-1 border rounded border-secondary list-group-item d-flex justify-content-between align-items-center">
+                        <p className="my-0">
+                            <span className="font-weight-bold"> { i }.</span> { informacion[`strIngredient${i}`] }
+                        </p>
+                        <span class="badge badge-primary badge-pill">{ informacion[`strMeasure${i}`] }</span>
+                    </li>
+                )
+            }
+        }
+
+        return ingredientes;
+    }
+
     return (
         <div className="mb-3 col-md-4">
             <div className="card">
@@ -59,6 +79,11 @@ const Receta = ({ receta }) => {
                                 { informacion_receta.strInstructions }
                             </p>
                             <img className="img-fluid" src={ informacion_receta.strDrinkThumb } alt={ `Imagen de ${informacion_receta.strDrink}` } />
+
+                            <h4 class="my-3 text-center">Ingredientes cantidades</h4>
+                            <ul className="list-group">
+                                { mostrarIngredientes(informacion_receta) }
+                            </ul>
                         </div>
                     </Modal>
                 </div>
