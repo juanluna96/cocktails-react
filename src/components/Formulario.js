@@ -20,6 +20,12 @@ const Formulario = () => {
                 <div className="col-md-4">
                     <select id="categoria" className="custom-select" name="categoria">
                         <option>-- Seleccione una categoría --</option>
+                        { categorias.map((categoria) => {
+                            if (categoria.strCategory === "") return null;
+                            return (
+                                <option key={ categoria.strCategory } value={ categoria.strCategory }>{ categoria.strCategory }</option>
+                            )
+                        }) }
                     </select>
                 </div>
                 <div className="col-md-4">
