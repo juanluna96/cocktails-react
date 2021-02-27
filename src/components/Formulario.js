@@ -3,9 +3,9 @@ import { CategoriasContext } from '../context/CategoriasContext';
 
 const Formulario = () => {
 
-    const { hola } = useContext(CategoriasContext);
+    const { categorias } = useContext(CategoriasContext);
 
-    alert(hola);
+    console.log(categorias);
 
     return (
         <form method="post" className="col-12">
@@ -13,7 +13,7 @@ const Formulario = () => {
                 <legend>Busca bebidas por categoría o ingrediente</legend>
             </fieldset>
 
-            <div className="row mt-3">
+            <div className="mt-3 row">
                 <div className="col-md-4">
                     <input className="form-control" type="text" name="nombre" placeholder="Buscar por ingrediente" />
                 </div>

@@ -7,7 +7,6 @@ function App() {
   return (
     <CategoriasProvider>
       <Header></Header>
-
       <div className="container mt-5">
         <div className="row">
           <Formulario></Formulario>
