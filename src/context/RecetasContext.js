@@ -31,7 +31,7 @@ export const RecetasProvider = (props) => {
     }, [busqueda]);
 
     return (
-        <RecetasContext.Provider value={ { buscarRecetas, setConsultar } }>
+        <RecetasContext.Provider value={ { recetas, buscarRecetas, setConsultar } }>
             {props.children }
         </RecetasContext.Provider>
     )
